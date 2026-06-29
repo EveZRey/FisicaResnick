@@ -1,37 +1,204 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
-  font-family: sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
   background: #f4f7f6;
-  padding: 20px;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
 header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-#problem-container {
-  display: grid;
-  gap: 20px;
-  max-width: 800px;
-  margin: auto;
-}
-.card {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  z-index: 10;
 }
-.materia {
+h1 {
+  font-size: 1.5rem;
   color: #2c3e50;
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.8em;
 }
-.pasos {
-  margin-top: 10px;
+#searchInput {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccd1d9;
+  border-radius: 20px;
+  outline: none;
+}
+#searchInput:focus {
+  border-color: #3498db;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr 300px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.sidebar-left,
+.content-center,
+.sidebar-right {
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.sidebar-left {
+  background: #fafbfc;
+  border-right: 1px solid #eaeaea;
+}
+.content-center {
+  background: #f4f7f6;
+}
+.sidebar-right {
+  background: #fff;
+  border-left: 1px solid #eaeaea;
+}
+
+details {
+  background: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+summary {
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #fdfdfd;
+  list-style: none;
+}
+summary:hover {
+  background: #f1f5f8;
+}
+.problem-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 15px;
+  border: none;
+  background: transparent;
+  border-top: 1px solid #f0f0f0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #555;
+  transition: background 0.2s;
+}
+.problem-btn:hover,
+.problem-btn.active {
+  background: #e1eff7;
+  color: #2980b9;
+}
+
+.empty-state {
+  text-align: center;
+  color: #7f8c8d;
+  margin-top: 50px;
+}
+.problem-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.tag {
+  display: inline-block;
+  background: #2c3e50;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.enunciado {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #222;
+  margin-bottom: 20px;
+}
+.pasos-list {
   padding-left: 20px;
-  color: #34495e;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
-.respuesta {
-  margin-top: 15px;
+.pasos-list li {
+  margin-bottom: 8px;
+}
+.respuesta-box {
+  background: #e8f8f5;
+  border-left: 4px solid #1abc9c;
+  padding: 15px;
   font-weight: bold;
-  color: #27ae60;
+  color: #16a085;
+  border-radius: 4px;
+}
+
+.sidebar-right h3 {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.formula-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  text-align: center;
+  overflow-x: auto;
+}
+.empty-text {
+  color: #95a5a6;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  body {
+    height: auto;
+    display: block;
+  }
+  .app-layout {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+  .sidebar-left,
+  .content-center,
+  .sidebar-right {
+    overflow-y: visible;
+    border: none;
+  }
+
+  .sidebar-left {
+    order: 1;
+    padding-bottom: 0;
+  }
+  .content-center {
+    order: 2;
+  }
+  .sidebar-right {
+    order: 3;
+    background: #fafbfc;
+    border-top: 1px solid #eaeaea;
+  }
 }

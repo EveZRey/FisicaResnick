@@ -16,11 +16,31 @@
       <input
         type="text"
         id="searchInput"
-        placeholder="Busca por tema o materia..."
+        placeholder="Buscar por tema, ID o palabra clave..."
       />
     </header>
 
-    <main id="problem-container"></main>
+    <div class="app-layout">
+      <aside class="sidebar-left" id="chapter-list">></aside>
+
+      <main class="content-center">
+        <div id="problem-view" class="empty-state">
+          <h2>Selecciona un problema de la izquierda</h2>
+          <p>
+            O utiliza el buscador de arriba para encontrar lo que necesitas.
+          </p>
+        </div>
+      </main>
+
+      <aside class="sidebar-right">
+        <h3>Fórmulas y Datos Extraídos</h3>
+        <div id="formulas-view">
+          <p class="empty-text">
+            Las fórmulas usadas en el problema aparecerán aquí.
+          </p>
+        </div>
+      </aside>
+    </div>
 
     <script
       defer
